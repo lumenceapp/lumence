@@ -2,8 +2,11 @@ package app.lumence.plugins.repos
 
 import app.lumence.core.Logger
 import app.lumence.core.LumenceJson
+import app.lumence.plugins.API_DEPENDENCY_ID
+import app.lumence.plugins.LEGACY_API_DEPENDENCY_ID
 import app.lumence.plugins.Version
 import app.lumence.plugins.VersionRange
+import app.lumence.plugins.normalizeDependencyId
 import app.lumence.plugins.external.ExternalDependency
 import app.lumence.plugins.external.requireValidPluginId
 import app.lumence.plugins.external.validatedPluginIcon
@@ -96,7 +99,12 @@ fun parseRepoIndex(json: String, repoUrl: String, log: Logger): RepoIndex {
                         warn("dropped version '$id@$versionKey': $problem")
                         continue
                     }
-                    put(versionKey, version)
+                    put(
+                        versionKey,
+                        version.copy(dependencies = version.dependencies.mapKeys { (depId, _) ->
+                            normalizeDependencyId(depId)
+                        }),
+                    )
                 }
             }
             if (versions.isEmpty()) {
@@ -134,6 +142,8 @@ private fun validateRepoVersion(versionKey: String, version: RepoVersion): Strin
     if (!isAbsoluteHttpUrl(version.url)) return "url must be absolute: '${version.url}'"
     if (!SHA256_HEX_REGEX.matches(version.sha256)) return "malformed sha256 digest"
     if (version.size <= 0) return "non-positive size"
+    if (API_DEPENDENCY_ID in version.dependencies && LEGACY_API_DEPENDENCY_ID in version.dependencies)
+        return "declares both API dependency ids"
     for ((depId, dep) in version.dependencies) {
         try {
             requireValidPluginId(depId)

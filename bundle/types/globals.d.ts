@@ -11,7 +11,7 @@ import type {
 declare module 'react' {
     namespace JSX {
         interface IntrinsicElements {
-            // TODO(PalmDevs): more intrinsic elements?
+            // More intrinsic elements?
             RCTView: ViewProps
             RCTImage: ImageProps
             RCTScrollView: ScrollViewProps

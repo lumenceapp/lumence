@@ -8,6 +8,7 @@ import {
     setPerfOverlayComponent,
     setPerfOverlayEnabled,
 } from './perf'
+import { setQuickReloadEnabled } from './quickReload'
 import { defaultFeatureStorage } from './storage'
 import { setMessageToastsEnabled } from './toasts'
 import type { PluginApi } from '@lumence/plugins/types'
@@ -28,6 +29,7 @@ registerInternalPlugin<{ jsonStorage: FeatureStorage }>(manifest, {
         setPerfOverlayEnabled(settings.perfOverlay)
         setMessageToastsEnabled(settings.messageToasts)
         setLogCaptureEnabled(settings.logCapture)
+        setQuickReloadEnabled(settings.quickReload)
 
         const unsubscribeSettings = onSettingsModulesLoaded(() => {
             // @as-require
@@ -40,6 +42,7 @@ registerInternalPlugin<{ jsonStorage: FeatureStorage }>(manifest, {
         setPerfOverlayEnabled(false)
         setMessageToastsEnabled(false)
         setLogCaptureEnabled(false)
+        setQuickReloadEnabled(false)
         disposePerfOverlay()
     },
 })

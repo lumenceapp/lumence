@@ -2,8 +2,7 @@ import { getAssetIdByName } from '@lumence/assets'
 import { styles } from '@lumence/components/_'
 import { Design } from '@lumence/discord/design'
 import { SettingListRenderer } from '@lumence/discord/modules/settings/renderer'
-import { Image, Linking, ScrollView, StyleSheet, View } from 'react-native'
-import LumenceDonate from '~assets/LumenceDonate'
+import { Linking, ScrollView, StyleSheet, View } from 'react-native'
 import { Setting } from '../constants'
 
 const { Button, Card, Stack, Text } = Design
@@ -65,10 +64,6 @@ const cardStyles = StyleSheet.create({
         width: '100%',
         height: '100%',
     },
-    illustration: {
-        width: 96,
-        height: 96,
-    },
 })
 
 function DonateCard() {
@@ -102,8 +97,8 @@ function DonateCard() {
                                 Support Lumence
                             </Text>
                             <Text variant="text-md/medium">
-                                You can help improve Lumence by contributing
-                                on GitHub.
+                                You can help improve Lumence by contributing on
+                                GitHub.
                             </Text>
                         </Stack>
                         <Stack spacing={12} direction="horizontal">
@@ -120,10 +115,6 @@ function DonateCard() {
                             />
                         </Stack>
                     </Stack>
-                    <Image
-                        source={LumenceDonate}
-                        style={cardStyles.illustration}
-                    />
                 </Stack>
             </View>
         </Card>

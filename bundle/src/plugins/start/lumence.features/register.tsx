@@ -10,6 +10,7 @@ import LumenceFeaturesLogCaptureSetting from './definitions/LogCaptureSetting'
 import LumenceFeaturesMessageToastsSetting from './definitions/MessageToastsSetting'
 import LumenceFeaturesPerfOverlaySetting from './definitions/PerfOverlaySetting'
 import LumenceFeaturesPerformanceSetting from './definitions/PerformanceSetting'
+import LumenceFeaturesQuickReloadSetting from './definitions/QuickReloadSetting'
 
 registerSettingsItems({
     [Setting.LumenceFeaturesPerformance]: LumenceFeaturesPerformanceSetting,
@@ -18,6 +19,7 @@ registerSettingsItems({
     [Setting.LumenceFeaturesFilePreview]: LumenceFeaturesFilePreviewSetting,
     [Setting.LumenceFeaturesDebugLogs]: LumenceFeaturesDebugLogsSetting,
     [Setting.LumenceFeaturesLogCapture]: LumenceFeaturesLogCaptureSetting,
+    [Setting.LumenceFeaturesQuickReload]: LumenceFeaturesQuickReloadSetting,
 })
 
 registerSettingsSection('LUMENCE_FEATURES', {
@@ -29,6 +31,7 @@ registerSettingsSection('LUMENCE_FEATURES', {
         Setting.LumenceFeaturesFilePreview,
         Setting.LumenceFeaturesDebugLogs,
         Setting.LumenceFeaturesLogCapture,
+        Setting.LumenceFeaturesQuickReload,
     ],
     index: 1,
 })

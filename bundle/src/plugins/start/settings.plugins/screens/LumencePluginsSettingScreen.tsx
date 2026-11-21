@@ -1,4 +1,3 @@
-import { useNavigation, useRoute } from '@react-navigation/native'
 import { getAssetByName, getAssetIdByName } from '@lumence/assets'
 import { styles } from '@lumence/components/_'
 import Page from '@lumence/components/Page'
@@ -22,6 +21,7 @@ import {
 } from '@lumence/plugins/_'
 import { useHasFlagPluginCount } from '@lumence/plugins/_/react'
 import { debounce } from '@lumence/utils/callback'
+import { useNavigation, useRoute } from '@react-navigation/native'
 import {
     useCallback,
     useEffect,
@@ -30,7 +30,6 @@ import {
     useState,
 } from 'react'
 import { Image, View } from 'react-native'
-import LumenceIcon from '~assets/LumenceIcon'
 import {
     belongsOnPage,
     matchInfoOfManifest,
@@ -40,8 +39,8 @@ import { InstalledPluginMasonryFlashList } from '../components/PluginList'
 import PluginTooltipsProvider from '../components/TooltipProvider'
 import { RouteNames, Setting } from '../constants'
 import { pluralize } from '../utils/strings'
-import type { NavigationProp, RouteProp } from '@react-navigation/core'
 import type { ReactNavigationParamList } from '@lumence/externals/react-navigation'
+import type { NavigationProp, RouteProp } from '@react-navigation/core'
 import type { PluginsPageProps } from '../api'
 import type { FilterAndSortActionSheetProps } from '../components/FilterAndSortActionSheet'
 
@@ -100,7 +99,7 @@ const Filters: FilterAndSortActionSheetProps['filters'] = {
             !isPluginEssential(meta) || plugin.SettingsComponent !== undefined,
     },
     Internal: {
-        icon: LumenceIcon,
+        icon: getAssetIdByName('ShieldIcon')!,
         desc: 'Included with Lumence.',
         filter: (_, meta) => isPluginInternal(meta),
     },
@@ -417,9 +416,7 @@ function Screen({ match, onBrowse }: Partial<PluginsPageProps>) {
                 ListHeaderComponent={ListHeader}
                 plugins={plugins}
             />
-            <BrowseFloatingActionButton
-                onBrowse={onBrowse}
-            />
+            <BrowseFloatingActionButton onBrowse={onBrowse} />
         </>
     )
 }

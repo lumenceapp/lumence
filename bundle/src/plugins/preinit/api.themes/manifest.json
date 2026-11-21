@@ -6,7 +6,7 @@
     "name": "Lumence"
   },
   "icon": "PaintPaletteIcon",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "enabledByDefault": true,
   "defaultSource": true,
   "api": true

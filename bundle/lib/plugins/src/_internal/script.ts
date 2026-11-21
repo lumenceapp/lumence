@@ -22,11 +22,14 @@ export function createOptionsFactory(
     if (!script) return () => ({})
 
     return () => {
+        // Older community scripts use the previous API name.
         const opts = new Function(
             'lumence',
+            'valenced',
             'plugin',
             `return ${script}\n//# sourceURL=Lumence:Plugin:${id}`,
         )(
+            pUnscopedApi,
             pUnscopedApi,
             // See types.consumers.ts
             (opts: PluginOptions) => opts,

@@ -48,6 +48,24 @@ class ExternalManifestTest {
     }
 
     @Test
+    fun `the older api dependency id maps to the current one`() {
+        val parsed = manifest(
+            dependencies = mapOf(
+                "valenced.api" to ExternalDependency(">=1 <2"),
+                "valenced.api.themes" to ExternalDependency("*"),
+                DISCORD_DEPENDENCY_ID to ExternalDependency("*"),
+            ),
+        )
+        parsed.validate()
+        val deps = parsed.toPluginManifest().dependencies
+        assertEquals(
+            setOf(API_DEPENDENCY_ID, "lumence.api.themes", DISCORD_DEPENDENCY_ID),
+            deps.keys,
+        )
+        assertEquals(">=1 <2", deps.getValue(API_DEPENDENCY_ID).version.toString())
+    }
+
+    @Test
     fun `plugin ids can't traverse a path`() {
         for (id in listOf("../evil", ".hidden", "a..b", "a/b")) {
             assertFailsWith<IllegalArgumentException>("expected '$id' to be rejected") { manifest(id = id).validate() }

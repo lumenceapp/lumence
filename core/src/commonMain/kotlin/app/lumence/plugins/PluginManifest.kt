@@ -49,3 +49,12 @@ const val DISCORD_DEPENDENCY_ID: String = "discord"
 
 // Reserved dependency IDs, served by internal provider plugins.
 val RESERVED_DEPENDENCY_IDS: Set<String> = setOf(API_DEPENDENCY_ID, DISCORD_DEPENDENCY_ID)
+
+// Community plugins built against the older id prefix keep working.
+internal const val LEGACY_ID_PREFIX = "valenced."
+internal const val LEGACY_API_DEPENDENCY_ID = LEGACY_ID_PREFIX + "api"
+
+private const val ID_PREFIX = "lumence."
+
+fun normalizeDependencyId(id: String): String =
+    if (id.startsWith(LEGACY_ID_PREFIX)) ID_PREFIX + id.removePrefix(LEGACY_ID_PREFIX) else id

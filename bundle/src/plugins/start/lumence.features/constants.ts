@@ -5,6 +5,7 @@ export const Setting = {
     LumenceFeaturesFilePreview: 'LumenceFeaturesFilePreview',
     LumenceFeaturesDebugLogs: 'LumenceFeaturesDebugLogs',
     LumenceFeaturesLogCapture: 'LumenceFeaturesLogCapture',
+    LumenceFeaturesQuickReload: 'LumenceFeaturesQuickReload',
 } as const
 
 export const RouteNames = {

@@ -1,14 +1,12 @@
-import LumenceIcon from '~assets/LumenceIcon'
-// TODO(PalmDevs): switch to external fetches
+import { getAssetByName } from '@lumence/assets'
 import Data from './data.json'
 import type { ImageSourcePropType } from 'react-native'
 
-// TODO(PalmDevs): possibly fetch from external source?
 export const Badges = {
     lumence_team: {
         label: 'Lumence Team',
         description: 'This user is a Lumence team member.',
-        icon: LumenceIcon,
+        icon: getAssetByName('ShieldIcon')!.id,
         bnw: true,
         showDialog: true,
     },

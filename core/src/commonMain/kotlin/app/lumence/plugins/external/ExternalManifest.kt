@@ -1,10 +1,13 @@
 package app.lumence.plugins.external
 
+import app.lumence.plugins.API_DEPENDENCY_ID
+import app.lumence.plugins.LEGACY_API_DEPENDENCY_ID
 import app.lumence.plugins.PluginDependency
 import app.lumence.plugins.PluginManifest
 import app.lumence.plugins.RESERVED_DEPENDENCY_IDS
 import app.lumence.plugins.Version
 import app.lumence.plugins.VersionRange
+import app.lumence.plugins.normalizeDependencyId
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -37,8 +40,9 @@ data class ExternalManifest(
         contributors = contributors,
         icon = icon?.let(::validatedPluginIcon),
         dependencies = dependencies.entries.associate { (depId, dep) ->
-            requireValidPluginId(depId)
-            depId to PluginDependency(
+            val id = normalizeDependencyId(depId)
+            requireValidPluginId(id)
+            id to PluginDependency(
                 version = dep.version?.let(VersionRange::parse) ?: VersionRange.ANY,
                 optional = dep.optional,
             )
@@ -87,15 +91,20 @@ fun ExternalManifest.validate() {
     requireValidPluginId(id)
     Version.parse(version)
 
+    require(!(API_DEPENDENCY_ID in dependencies && LEGACY_API_DEPENDENCY_ID in dependencies)) {
+        "Plugin '$id' declares both API dependency ids"
+    }
+    val declaredIds = dependencies.keys.map(::normalizeDependencyId).toSet()
     for (reservedId in RESERVED_DEPENDENCY_IDS) {
-        require(reservedId in dependencies) {
+        require(reservedId in declaredIds) {
             "Plugin '$id' does not declare the mandatory '$reservedId' dependency"
         }
     }
     for ((depId, dep) in dependencies) {
-        requireValidPluginId(depId)
+        val id = normalizeDependencyId(depId)
+        requireValidPluginId(id)
         dep.version?.let(VersionRange::parse)
-        require(!(dep.optional && depId in RESERVED_DEPENDENCY_IDS)) {
+        require(!(dep.optional && id in RESERVED_DEPENDENCY_IDS)) {
             "Plugin '$id': the '$depId' dependency cannot be optional"
         }
     }
