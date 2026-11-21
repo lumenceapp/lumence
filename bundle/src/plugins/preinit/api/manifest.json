@@ -1,0 +1,11 @@
+{
+  "id": "lumence.api",
+  "name": "Plugin API",
+  "description": "Provides the Lumence plugin API.",
+  "author": {
+    "name": "Lumence"
+  },
+  "icon": "PollsIcon",
+  "essential": true,
+  "api": true
+}

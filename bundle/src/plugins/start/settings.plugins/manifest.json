@@ -1,0 +1,13 @@
+{
+  "id": "lumence.settings.plugins",
+  "name": "Plugin Settings",
+  "description": "Plugin management UI for Lumence.",
+  "author": {
+    "name": "Lumence"
+  },
+  "icon": "PuzzlePieceIcon",
+  "essential": true,
+  "dependencies": {
+    "lumence.settings": {}
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "lumence.no-track",
+  "name": "No Track",
+  "description": "Disables Discord and Sentry analytics.",
+  "author": {
+    "name": "Lumence"
+  },
+  "icon": "AnalyticsIcon",
+  "enabledByDefault": true
+}

@@ -1,0 +1,13 @@
+{
+  "id": "lumence.recovery",
+  "name": "Recovery",
+  "description": "Handles errors and provides troubleshooting options for Lumence.",
+  "author": {
+    "name": "Lumence"
+  },
+  "icon": "ShieldIcon",
+  "essential": true,
+  "dependencies": {
+    "lumence.settings": {}
+  }
+}

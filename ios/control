@@ -1,0 +1,11 @@
+Package: app.lumence.tweak
+Name: LumenceTweak
+Version: 1.0.0
+Architecture: iphoneos-arm
+Description: A tweak to inject Lumence into Discord
+Maintainer: cocobo1
+Author: Lumence
+Icon: <https://github.com/lumenceapp.png>
+Section: Tweaks
+Depends: mobilesubstrate (>= 0.9.5000)
+Conflicts: app.enmity, mod.vendetta, app.unbound, com.cloudysnow.btloader, app.pyoncord, cocobo1.kettu.tweak, dev.raincord.tweak

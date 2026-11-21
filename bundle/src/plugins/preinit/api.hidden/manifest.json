@@ -1,0 +1,10 @@
+{
+  "id": "lumence.api.hidden",
+  "name": "Developer Mode",
+  "description": "Exposes internal Lumence APIs for debugging.",
+  "author": {
+    "name": "Lumence"
+  },
+  "icon": "WrenchIcon",
+  "enabledByDefault": "dev"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "lumence.staff-settings",
+  "name": "Staff Settings",
+  "description": "Allows accessing Discord's Staff Settings.",
+  "author": {
+    "name": "Lumence"
+  },
+  "icon": "StaffBadgeIcon",
+  "enabledByDefault": true
+}

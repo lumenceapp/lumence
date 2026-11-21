@@ -1,0 +1,10 @@
+{
+  "id": "lumence.user-badges",
+  "name": "User Badges",
+  "description": "Badges for Lumence contributors and sponsors.",
+  "author": {
+    "name": "Lumence"
+  },
+  "icon": "ShieldUserIcon",
+  "essential": true
+}

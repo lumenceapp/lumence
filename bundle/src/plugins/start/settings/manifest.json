@@ -1,0 +1,10 @@
+{
+  "id": "lumence.settings",
+  "name": "Settings",
+  "description": "Settings UI for Lumence.",
+  "author": {
+    "name": "Lumence"
+  },
+  "icon": "SettingsIcon",
+  "essential": true
+}

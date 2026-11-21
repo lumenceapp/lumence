@@ -1,0 +1,5 @@
+[bundle]
+name = "lumence"
+author = "Lumence"
+description = "Lumence for Discord"
+format_version = 1

@@ -1,0 +1,13 @@
+{
+  "id": "lumence.logging",
+  "name": "Logging",
+  "description": "Logs assisting Lumence developers.",
+  "author": {
+    "name": "Lumence"
+  },
+  "icon": "PaperIcon",
+  "enabledByDefault": true,
+  "build": {
+    "devOnly": true
+  }
+}
