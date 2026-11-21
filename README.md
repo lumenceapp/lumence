@@ -4,7 +4,7 @@
         src="assets/logo.svg"
     >
     <h1 align="center">Lumence</h1>
-    <p align="center"><strong>Supercharge your Discord experience.</strong> A client modification for Discord mobile.</p>
+    <p align="center"><strong>Lumence</strong> adds themes, plugins and tools to Discord mobile.</p>
     <br>
     <div align="center">
         <a href="https://github.com/lumenceapp">

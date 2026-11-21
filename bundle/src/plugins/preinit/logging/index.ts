@@ -28,7 +28,7 @@ if (__DEV__) {
                 performance.now() - tsInit,
             )
             logger.log(
-                `✨ Lumence. Supercharge your Discord experience. (${FullVersion} (${BuildEnvironment}))`,
+                `✨ Lumence. ${FullVersion} (${BuildEnvironment})`,
             )
         },
     })
