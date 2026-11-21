@@ -15,14 +15,14 @@ import org.lsposed.patch.KeystoreSpec
 import org.lsposed.patch.PatchSpec
 import org.lsposed.patch.util.Logger
 
-val lumence = patch("Lumence") {
-    description("Loads Lumence and its plugins into Discord.")
+val lumence = patch(LumenceStrings.lumence) {
+    description(LumenceStrings.lumenceDescription)
     compatibleWith(DISCORD)
 
     val moduleOption = pathOption(
         "module",
-        title = "Lumence Xposed module",
-        description = "The Lumence Xposed module APK to load.",
+        title = LumenceStrings.module,
+        description = LumenceStrings.moduleDescription,
         required = true,
     )
 

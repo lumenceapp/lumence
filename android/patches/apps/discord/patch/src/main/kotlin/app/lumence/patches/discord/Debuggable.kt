@@ -5,8 +5,8 @@ package app.lumence.patches.discord
 
 import app.reseam.patch.patch
 
-val enableDebugging = patch("Enable debugging") {
-    description("Marks Discord debuggable, so adb can run-as it and attach debuggers without root.")
+val enableDebugging = patch(LumenceStrings.enableDebugging) {
+    description(LumenceStrings.enableDebuggingDescription)
     compatibleWith(DISCORD)
     enabledByDefault(false)
 

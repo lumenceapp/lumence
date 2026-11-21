@@ -5,14 +5,14 @@ package app.lumence.patches.discord
 
 import app.reseam.patch.patch
 
-val changeAppName = patch("Change app name") {
-    description("Shows Discord under another name in the launcher and in Android's settings.")
+val changeAppName = patch(LumenceStrings.changeAppName) {
+    description(LumenceStrings.changeAppNameDescription)
     compatibleWith(DISCORD)
 
     val appNameOption = stringOption(
         "appName",
-        title = "App name",
-        description = "The name the launcher shows.",
+        title = LumenceStrings.appName,
+        description = LumenceStrings.appNameDescription,
         default = "Lumence",
     )
 

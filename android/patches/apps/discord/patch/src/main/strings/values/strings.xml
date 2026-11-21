@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="change_app_name">Change app name</string>
+    <string name="change_app_name_description">Shows Discord under another name in the launcher and in Android\'s settings.</string>
+    <string name="app_name">App name</string>
+    <string name="app_name_description">The name the launcher shows.</string>
+    <string name="enable_debugging">Enable debugging</string>
+    <string name="enable_debugging_description">Marks Discord debuggable, so adb can run-as it and attach debuggers without root.</string>
+    <string name="lumence_icon">Lumence icon</string>
+    <string name="lumence_icon_description">Puts Discord\'s launcher icon on Lumence\'s yellow.</string>
+    <string name="lumence">Lumence</string>
+    <string name="lumence_description">Loads Lumence and its plugins into Discord.</string>
+    <string name="module">Lumence Xposed module</string>
+    <string name="module_description">The Lumence Xposed module APK to load.</string>
+    <string name="change_package_name">Change package name</string>
+    <string name="change_package_name_description">Installs Discord under its own package name, so it runs alongside the original.</string>
+    <string name="package_name">Package name</string>
+    <string name="package_name_description">The package name to install Discord under.</string>
+</resources>

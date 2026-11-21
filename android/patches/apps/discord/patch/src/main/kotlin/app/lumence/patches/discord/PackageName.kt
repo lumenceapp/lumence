@@ -13,8 +13,8 @@ private val PACKAGE_NAME = Regex("^[a-z]\\w*(\\.[a-z]\\w*)+$")
 private val PERMISSION_DECLARATIONS = setOf("permission", "uses-permission", "uses-permission-sdk-23")
 private val PERMISSION_ATTRIBUTES = listOf("android:permission", "android:readPermission", "android:writePermission")
 
-val changePackageName = patch("Change package name") {
-    description("Installs Discord under its own package name, so it runs alongside the original.")
+val changePackageName = patch(LumenceStrings.changePackageName) {
+    description(LumenceStrings.changePackageNameDescription)
     compatibleWith(DISCORD)
     // The resource table keeps Discord's package name: Lumence's FixResources tweak redirects
     // lookups under the installed name to it, so without Lumence they would resolve to nothing.
@@ -22,8 +22,8 @@ val changePackageName = patch("Change package name") {
 
     val packageNameOption = stringOption(
         "packageName",
-        title = "Package name",
-        description = "The package name to install Discord under.",
+        title = LumenceStrings.packageName,
+        description = LumenceStrings.packageNameDescription,
         default = "app.lumence",
     )
 

@@ -15,8 +15,8 @@ private val LAUNCHER_ICONS = listOf(
 private const val BACKGROUND = "lumence_icon_background"
 private const val FOREGROUND = "lumence_icon_foreground"
 
-val lumenceIcon = patch("Lumence icon") {
-    description("Puts Discord's launcher icon on Lumence's yellow.")
+val lumenceIcon = patch(LumenceStrings.lumenceIcon) {
+    description(LumenceStrings.lumenceIconDescription)
     compatibleWith(DISCORD)
 
     execute {
