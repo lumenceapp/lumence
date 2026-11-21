@@ -22,4 +22,4 @@ export namespace ReactNative {
     }
 }
 
-export type RunApplicationCallback = () => any
+export type RunApplicationCallback = (args: unknown[]) => any

@@ -1,17 +1,23 @@
 import { instead } from '@lumence/patcher'
 import { ReactNative } from '..'
-import { sAfterRunApplication, sBeforeRunApplication } from './_internal'
+import {
+    sAfterRunApplication,
+    sBeforeRunApplication,
+    setLastRunApplicationArgs,
+} from './_internal'
 
 instead(ReactNative.AppRegistry, 'runApplication', function (args, orig) {
+    setLastRunApplicationArgs(args)
+
     for (const cb of sBeforeRunApplication)
         try {
-            cb()
+            cb(args)
         } catch {}
 
     Reflect.apply(orig, this, args)
 
     for (const cb of sAfterRunApplication)
         try {
-            cb()
+            cb(args)
         } catch {}
 })

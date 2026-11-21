@@ -1,4 +1,8 @@
-import { sAfterRunApplication, sBeforeRunApplication } from './_internal'
+import {
+    getLastRunApplicationArgs,
+    sAfterRunApplication,
+    sBeforeRunApplication,
+} from './_internal'
 import type { RunApplicationCallback } from '@lumence/react/types'
 
 // Registers a callback to be run when a call to {@link AppRegistry.runApplication} is made.
@@ -22,3 +26,5 @@ export function onRunApplicationFinished(callback: RunApplicationCallback) {
         sAfterRunApplication.delete(callback)
     }
 }
+
+export { getLastRunApplicationArgs }

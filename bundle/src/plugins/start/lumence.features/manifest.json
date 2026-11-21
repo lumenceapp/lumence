@@ -1,0 +1,14 @@
+{
+  "id": "lumence.features",
+  "name": "Lumence Features",
+  "description": "Performance, message, file and debug tools for Lumence.",
+  "author": {
+    "name": "Lumence"
+  },
+  "icon": "ScienceIcon",
+  "essential": true,
+  "enabledByDefault": true,
+  "dependencies": {
+    "lumence.settings": {}
+  }
+}
