@@ -1,6 +1,7 @@
 package app.lumence.plugins.repos
 
 import app.lumence.core.logger
+import app.lumence.plugins.API_DEPENDENCY_ID
 import kotlin.test.*
 
 private val log = logger("test")
@@ -56,6 +57,36 @@ class RepoIndexTest {
 
             assertTrue(parsed.plugins.isEmpty(), "expected '$url' to be dropped")
         }
+    }
+
+    @Test
+    fun `older dependency ids are normalized`() {
+        val json = """
+            {
+              "format": $REPO_INDEX_FORMAT,
+              "name": "Test Repo",
+              "plugins": {
+                "a.b": {
+                  "name": "A",
+                  "channels": { "latest": "1.0.0" },
+                  "versions": {
+                    "1.0.0": {
+                      "url": "https://example.test/a.zip",
+                      "sha256": "$SHA",
+                      "size": 1,
+                      "dependencies": { "valenced.api": { "version": ">=1 <2" } }
+                    }
+                  }
+                }
+              }
+            }
+        """.trimIndent()
+
+        val parsed = parseRepoIndex(json, REPO_URL, log)
+        val deps = parsed.plugins.getValue("a.b").versions.getValue("1.0.0").dependencies
+
+        assertEquals(setOf(API_DEPENDENCY_ID), deps.keys)
+        assertEquals(">=1 <2", deps.getValue(API_DEPENDENCY_ID).version.toString())
     }
 
     @Test
